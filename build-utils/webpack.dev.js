@@ -2,14 +2,15 @@ const path = require('path');
 const projectPath = require('./paths');
 
 module.exports = {
-  devtool: 'inline-source-map', // Sean Larkin: use 'eval-source-map' //???
+  devtool: 'inline-source-map', // Sean Larkin: use 'eval-source-map' //?
   devServer: {
-    //stats: 'errors-only',
+    stats: 'errors-only',
     compress: true,
     watchContentBase: true,
     contentBase: path.resolve(projectPath, "dist/img")
   },
   output: {
+    pathinfo: true,
     filename: '[name].js'
   },
   module: {
@@ -21,11 +22,11 @@ module.exports = {
           'style-loader',
           {
             loader: 'css-loader',
-            //options: { sourceMap: true }
+            options: { sourceMap: true }
           },
           {
             loader: 'sass-loader',
-            //options: { sourceMap: true }
+            options: { sourceMap: true }
           }
         ]
       }

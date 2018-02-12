@@ -21,6 +21,12 @@ module.exports = {
               }
             },
             {
+              loader: 'postcss-loader',
+              options: { 
+                sourceMap: true 
+              }
+            },
+            {
               loader: 'sass-loader',
               options: { 
                 sourceMap: true 
@@ -29,6 +35,39 @@ module.exports = {
           ],
           fallback: 'style-loader'
         })
+      },
+      { 
+        test: /\.html$/, 
+        use: [
+          {
+            loader: 'html-loader',
+            options: {
+              minimize: true,
+              // processScripts: ['text/template']              
+            }
+          }
+        ] 
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 10000
+            }
+          },
+          {
+            loader: 'img-loader'
+          }
+        ]
+      },
+      {
+        test: /\.(eot|ttf|woff|woff2)$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000
+        }
       }
     ]
   },
