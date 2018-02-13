@@ -19,8 +19,7 @@ module.exports = {
               loader: 'css-loader',
               options: { 
                 sourceMap: true,
-                minimize: true,
-                importLoaders: 1
+                importLoaders: 2
               }
             },
             {
@@ -37,18 +36,6 @@ module.exports = {
             }
           ]
         })
-      },
-      { 
-        test: /\.html$/, 
-        use: [
-          {
-            loader: 'html-loader',
-            options: {
-              minimize: true,
-              // processScripts: ['text/template']              
-            }
-          }
-        ] 
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/,
