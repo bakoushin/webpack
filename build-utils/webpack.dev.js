@@ -19,14 +19,21 @@ module.exports = {
         test: /\.scss$/,
         include: [path.resolve(projectPath, 'src/scss')],
         use: [
-          'style-loader',
+          {
+            loader: 'style-loader'
+          },
           {
             loader: 'css-loader',
-            options: { sourceMap: true }
+            options: { 
+              sourceMap: true,
+              importLoaders: 1
+            }
           },
           {
             loader: 'sass-loader',
-            options: { sourceMap: true }
+            options: { 
+              sourceMap: true 
+            }
           }
         ]
       }
