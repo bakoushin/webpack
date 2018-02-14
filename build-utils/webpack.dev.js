@@ -2,7 +2,7 @@ const path = require('path');
 const projectPath = require('./paths');
 
 module.exports = {
-  devtool: 'inline-source-map', // Sean Larkin: use 'eval-source-map' //?
+  devtool: 'eval-source-map',
   devServer: {
     stats: 'errors-only',
     compress: true,
@@ -32,7 +32,7 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: { 
-              sourceMap: true 
+              sourceMap: true
             }
           }
         ]
