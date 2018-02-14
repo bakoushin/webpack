@@ -63,7 +63,16 @@ module.exports = {
   plugins: [
     new ExtractTextPlugin('style.[contenthash].css'),
     new UglifyJsPlugin({
-      sourceMap: true
+      sourceMap: true,
+      cache: true,
+      parallel: true,
+      uglifyOptions: {
+        mangle: {
+          // fix for Safari 10 `let` bug:
+          // https://bugs.webkit.org/show_bug.cgi?id=171041
+          safari10: true
+        }
+      }
     }),
     new HtmlWebpackPlugin({
       minify: {
@@ -76,7 +85,10 @@ module.exports = {
         removeStyleLinkTypeAttributes: true,
         processScripts: ['text/template']        
       }
-    }),
+    })
+    //TODO:
+    //new ManifestPlugin()
+    //new SWPrecacheWebpackPlugin()
     //new CompressionWebpackPlugin()
-  ]  
+  ]
 };  
