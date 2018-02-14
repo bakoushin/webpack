@@ -2,7 +2,7 @@ const path = require('path');
 const projectPath = require('./paths');
 
 module.exports = {
-  devtool: 'eval-source-map',
+  devtool: 'cheap-module-eval-source-map',
   devServer: {
     stats: 'errors-only',
     compress: true,
