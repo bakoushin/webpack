@@ -1,9 +1,10 @@
 const path = require('path');
 const projectPath = require('./paths');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const CompressionWebpackPlugin = require('compression-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CompressionWebpackPlugin = require('compression-webpack-plugin');
 
 module.exports = {
   devtool: 'source-map',
@@ -61,6 +62,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new CleanWebpackPlugin(['dist'], { root: projectPath }),
     new ExtractTextPlugin('style.[contenthash].css'),
     new UglifyJsPlugin({
       sourceMap: true,
