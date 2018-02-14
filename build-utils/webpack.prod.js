@@ -67,8 +67,13 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       minify: {
+        useShortDoctype: true,
         collapseWhitespace: true,
         conservativeCollapse: true,
+        removeComments: true,
+        removeEmptyAttributes: true,
+        removeRedundantAttributes: true,
+        removeStyleLinkTypeAttributes: true,
         processScripts: ['text/template']        
       }
     }),
