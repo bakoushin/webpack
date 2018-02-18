@@ -44,7 +44,8 @@ module.exports = {
           {
             loader: 'url-loader',
             options: {
-              limit: 10000
+              limit: 10000,
+              name: '[name].[hash].[ext]'
             }
           },
           {
@@ -56,7 +57,8 @@ module.exports = {
         test: /\.(eot|ttf|woff|woff2)$/,
         loader: 'url-loader',
         options: {
-          limit: 10000
+          limit: 10000,
+          name: '[name].[hash].[ext]'
         }
       }
     ]
