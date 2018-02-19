@@ -1,5 +1,6 @@
 const path = require('path');
 const projectPath = require('./paths');
+const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
@@ -66,6 +67,10 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(['dist'], { root: projectPath }),
     new ExtractTextPlugin('style.[contenthash].css'),
+    // TODO:
+    // new webpack.optimize.CommonsChunkPlugin({
+    //   name: 'common'
+    // }),
     new UglifyJsPlugin({
       sourceMap: true,
       cache: true,
